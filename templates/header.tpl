@@ -6,7 +6,7 @@
             </div>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {foreach from=$lista_generos item=gen}
-                    <a class="btn btn-secondary dropdown-item" href=seriePorGenero/{$gen-id_genero}>{$gen->nombreGen}</a>
+                    <a class="btn btn-secondary dropdown-item" href=genero/{$gen->nombreGen}>{$gen->nombreGen}</a>
                 {/foreach} 
             </div>
     </nav>

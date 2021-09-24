@@ -20,13 +20,6 @@ class SeriesModel{
         $series=$sentencia->fetchAll(PDO::FETCH_OBJ);
         return $series;
     }
-    //busca todas las series por un genero
-    function getSeriegen($id){
-        $sentencia=$this->db->prepare("SELECT*FROM serie WHERE serie.id_genero=?");
-        $sentencia->execute(array($id));
-        $series=$sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $series;
-    }
     //agrega una serie
     function addSerie($nombre,$sinopsis,$actor,$genero){
         $sentencia=$this->db->prepare("INSERT INTO serie(nombre,sinopsis,actor_principal,id_genero) VALUES (?,?,?,?)");
@@ -52,7 +45,13 @@ class SeriesModel{
         $sentencia=$this->db->prepare("UPDATE serie SET nombre=?,sinopsis=?,actor_principal=?,id_genero=? WHERE id_genero=? ");
         $sentencia->execute($nombre,$sinopsis,$actor,$genero,$id);
     }
-
+    //busca todas las series por un genero
+    function getSerieGen($genero){
+        $sentencia=$this->db->prepare("SELECT*FROM serie INNER JOIN genero ON serie.id_genero=genero.id_genero WHERE genero.nombreGen=?");
+        $sentencia->execute(array($genero));
+        $series=$sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $series;
+    }
 
 
 }

@@ -26,8 +26,10 @@ switch($params[0]){
         break;
     case 'addSerie':
         $SerieController->addSerie();
-    case 'seriePorGenero':
+        break;
+    case 'genero':
         $SerieController->getSeriesPorGenro($params[1]);
+        break;
 }
 
 ?>
