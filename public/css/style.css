@@ -1,0 +1,272 @@
+/* -----------------HEADER------------------ */
+*{
+    padding: 0%;
+    border: 0%;
+}
+
+body{
+    background-image: url(images/fondo-estrella.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Barra nav*/
+nav{
+    float: right;
+    font-size:20px;
+    margin:3%;
+    margin-right: 30%;
+}
+
+li a :hover{
+    background-color: rgba(133, 170, 201, 0.945);
+}
+/*-------------------FOOTER------------------------*/ 
+footer{
+    width: 100%;
+}
+
+.listaFooter{
+    margin-left:5%;
+    display: inline;
+}
+.listaFooter a{
+    color:aliceblue;
+}
+#sociaFooter{
+    color:aliceblue;
+    margin-left: 5%;
+}
+.listaFooter,#sociaFooter{
+    font-size: 20px;
+   
+}
+
+/* ------------- VER_SERIES ----------------*/
+
+/*Titulo pág principal*/
+.titulo{
+    font-size: 300%;
+    color: rgb(25, 221, 58);
+    margin: 0% 20%;
+}
+
+/*tarjeta de imagenes en pág principal*/
+
+.text-white {
+    width: 20%;
+    
+}
+.altura{
+    height: 200px;
+}
+.text-white {
+    margin-top: 10%;
+    margin-left: 8%;
+}
+
+.row{
+    width: 100%;
+}
+/* PRUEBA DE ESTILO A LAS IMAGENES DE LAS TARJETAS (NO FUNCIONA)*/
+
+.btn-iniciarsesion{
+    background-color: transparent;
+    border: transparent;
+    color: rgb(84, 77, 128);
+}
+
+.btn-iniciarsesion {
+    border: transparent;
+    background-color: transparent;
+    color: red;
+    font-size: 150%;
+
+    /* ubicación */
+    margin-left: 80%;
+}
+
+/* -------------------------------- LOGIN----------------- */
+.form-login {
+    width: 30%;
+    background-color: rgba(42, 67, 211, 0.534);
+   
+    display: flex;
+    flex-direction: column;
+    /* ubicación */
+    margin:auto; 
+    padding: 2%;
+}
+
+.form-login input {
+    width: 90%;
+    margin: 2% auto;
+    
+}
+
+.form-login .btn-ingreso {
+    width: 40%;
+    margin-top: 2%;
+    background-color: rgb(211, 4, 73);
+    border: transparent;
+    color: azure;
+}
+
+.msj-error{
+    margin: 1% auto;
+    color:red;
+    font-size: 100%;
+}
+
+.btn-registrarse{
+    background-color: transparent;
+    border: transparent;
+    margin-top: 3%;
+    color: yellow;
+}
+
+/* EDITAR DATOS (GENERO) */
+/* MOSTRAR Y OCULTAR VENTANA MODAL DE EDITAR GENERO */
+.titulo-editar{
+    color: rgb(79, 250, 0);
+    margin:3% 10%;
+}
+.show-windows{
+    visibility: visible;
+ }
+.hidden-windows{
+    visibility: hidden;
+}
+ 
+#box-editarGen{
+    background-color: rgba(33, 119, 194, 0.925);
+    width: 20%;
+    height: 120px;
+    margin: auto;
+   
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+}
+
+#box-editarSerie{
+    background-color: rgba(33, 119, 194, 0.925);
+    width: 22%;
+    height: 400px;
+    margin: auto;
+   
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+}
+
+.btn-guardar, .btn-cancelar, .btn-guardarSer, .btn-cancelarSer{
+    width: 30%;
+    background-color: rgb(211, 4, 73);
+    border: transparent;
+    color: azure;
+}
+
+.box-editarGen, .box-editarSerie{
+    display: flex;
+    justify-content: center;
+}
+
+.input-editar, .input-editarSer{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 1%;
+}
+ .btns-guardar-cancelar{
+    margin: 6% 10%;
+ }
+
+.label-ingreso{
+    font-size: 90%;
+    margin-left: 4%;
+    color: rgb(255, 217, 0);
+}
+
+ /* LISTA SERIES */
+
+ .imagen-tabla{
+    width: 20%;
+ }
+
+
+
+ /* INFO SERIE */
+.imagen-infoSerie{
+    width: 50%;
+    margin: 5% 20%;
+}
+
+.tit-info{
+    margin-top: 3%;
+}
+
+.font{
+    color: chartreuse;
+    width: 65%;
+    margin-left: 10%;
+    font-size: 25px;
+}
+
+.video-iframe{
+    margin-left: 30%;
+}
+
+/* TABLA LISTA SERIES */
+.tableListaSerie{
+    margin: 5% auto;
+    margin-bottom: 1%;
+    width: 90%;
+    color: rgb(136, 255, 0);
+}
+table,th, td {
+    background-color: rgba(0, 102, 128, 0.356);
+    border: 5px solid rgb(0, 90, 38);
+    border-collapse: collapse;  
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* FORMULARIO AGREGAR SERIE */
+.box-nuevaserie {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(83, 71, 241, 0.335);
+    margin:10% auto;
+}
+.box-nuevaserie .titulo-agregar{
+    background-color: transparent;
+    color: greenyellow;
+    font-size: 150%;
+    padding: 2%;
+    margin:auto;
+}
+.form-nuevaserie{
+    display: flex;
+    flex-direction: column;
+}
+.form-nuevaserie input, .form-nuevaserie textarea, .form-nuevaserie select{
+    background-color: rgba(248, 248, 248, 0.712);
+    width: 80%;
+    padding: 2%;
+    margin:auto;
+}
+ .form-nuevaserie .btn-ingreso{
+    width: 60%;
+    margin: 6% auto;
+    background-color: rgb(211, 4, 73);
+    border: transparent;
+    color: azure;
+ }
