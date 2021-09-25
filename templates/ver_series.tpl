@@ -4,6 +4,9 @@
 <a href="showSeries" class="nav-link">
     <button type="button" class="btn btn-danger">Lista de series</button>
 </a>
+<a href="modificar" class="nav-link">
+    <button type="button" class="btn btn-danger">Modificar</button>
+</a>
 
 <section>
     <h1 class="titulo">Series Destacadas</h1>
@@ -20,21 +23,4 @@
     </ul>
 </section>
 
-<div class="box-nuevaserie">
-            <label class="titulo-agregar">AGREGAR SERIE</label>
-            {* INSERTAR SERIE *}
-            <form action="addSerie" method="POST" class='form-nuevaserie' enctype="multipart/form-data" required >
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <textarea name="sinopsis" placeholder="Sinopsis" required></textarea>
-                <input type="text" name="actor" placeholder="Actor" required>
-                {* OPCIONES *}
-                <select class="opciones" name="genero" required>
-                 <option value="" disable>Seleccione una opción</option>
-                {foreach from=$lista_generos item=gen}
-                    <option value={$gen->id_genero}>{$gen->nombreGen}</option>
-                {/foreach}
-                </select>
-                <input type="submit" value="Insertar" class="btn-ingreso">
-            </form>
-</div>
 {include file="footer.tpl"}

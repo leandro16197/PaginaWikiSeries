@@ -35,7 +35,7 @@ class GenerosModel{
         $sentencia->execute(array($id));
 
     }
-
+    //edita un genero
     function editGenero($nombre,$id){
         $sentencia=$this->db->prepare("UPDATE genero SET nombreGen=? WHERE id_genero=?");
         $sentencia->execute(array($nombre,$id));

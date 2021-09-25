@@ -31,11 +31,6 @@ class SeriesController{
         $genero=$this->seriesModel->getSerieGenro();
         $this->seriesView->showSeries($genero);
     }
-
-    function addSerie(){    
-        $this->seriesModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero']);
-        header("Location: " . BASE_URL);
-    }
     function getSeriesPorGenro($genero){
         $series=$this->seriesModel->getSerieGen($genero);
         $this->seriesView->showSeries($series);

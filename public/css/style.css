@@ -1,11 +1,6 @@
 /* -----------------HEADER------------------ */
-*{
-    padding: 0%;
-    border: 0%;
-}
-
 body{
-    background-image: url(images/fondo-estrella.png);
+    background-image: url(images/fondo.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -86,47 +81,93 @@ footer{
     margin-left: 80%;
 }
 
-/* -------------------------------- LOGIN----------------- */
-.form-login {
+.imagen-tabla{
+    width: 20%;
+ }
+
+ /* INFO SERIE */
+.imagen-infoSerie{
+    width: 50%;
+    margin: 5% 20%;
+}
+
+.tit-info{
+    margin-top: 3%;
+}
+
+.font{
+    color: chartreuse;
+    width: 65%;
+    margin-left: 10%;
+    font-size: 25px;
+}
+.imagen-tabla{
+    width: 20%;
+ }
+/* TABLA LISTA SERIES */
+.tableListaSerie{
+    margin: 5% auto;
+    margin-bottom: 1%;
+    width: 90%;
+    color: rgb(136, 255, 0);
+}
+table,th, td {
+    background-color: rgba(0, 102, 128, 0.356);
+    border: 5px solid rgb(0, 90, 38);
+    border-collapse: collapse;  
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* FORMULARIO AGREGAR GENERO */
+.table-admin {
+    margin: 5% auto;
+    margin-bottom: 10%;
+    width: 90%;
+    color:rgba(30, 255, 0, 0.849);
+}
+/* FORMULARIO AGREGAR SERIE Y EDITAR */
+.box-nuevaserie {
     width: 30%;
-    background-color: rgba(42, 67, 211, 0.534);
-   
     display: flex;
     flex-direction: column;
-    /* ubicación */
-    margin:auto; 
+    background-color: rgba(83, 71, 241, 0.335);
+    margin:10% auto;
+}
+.box-nuevaserie .titulo-agregar{
+    background-color: transparent;
+    color: greenyellow;
+    font-size: 150%;
     padding: 2%;
+    margin:auto;
 }
-
-.form-login input {
-    width: 90%;
-    margin: 2% auto;
-    
+.form-nuevaserie{
+    display: flex;
+    flex-direction: column;
 }
-
-.form-login .btn-ingreso {
-    width: 40%;
-    margin-top: 2%;
+.form-nuevaserie input, .form-nuevaserie textarea, .form-nuevaserie select{
+    background-color: rgba(248, 248, 248, 0.712);
+    width: 80%;
+    padding: 2%;
+    margin:auto;
+}
+ .form-nuevaserie .btn-ingreso{
+    width: 60%;
+    margin: 6% auto;
     background-color: rgb(211, 4, 73);
     border: transparent;
     color: azure;
-}
+ }
 
-.msj-error{
-    margin: 1% auto;
-    color:red;
-    font-size: 100%;
+ .label-ingreso{
+    font-size: 90%;
+    margin-left: 4%;
+    color: rgba(0, 255, 34, 0.849);
 }
-
-.btn-registrarse{
-    background-color: transparent;
-    border: transparent;
-    margin-top: 3%;
-    color: yellow;
-}
-
-/* EDITAR DATOS (GENERO) */
+ 
 /* MOSTRAR Y OCULTAR VENTANA MODAL DE EDITAR GENERO */
+
 .titulo-editar{
     color: rgb(79, 250, 0);
     margin:3% 10%;
@@ -192,81 +233,3 @@ footer{
     margin-left: 4%;
     color: rgb(255, 217, 0);
 }
-
- /* LISTA SERIES */
-
- .imagen-tabla{
-    width: 20%;
- }
-
-
-
- /* INFO SERIE */
-.imagen-infoSerie{
-    width: 50%;
-    margin: 5% 20%;
-}
-
-.tit-info{
-    margin-top: 3%;
-}
-
-.font{
-    color: chartreuse;
-    width: 65%;
-    margin-left: 10%;
-    font-size: 25px;
-}
-
-.video-iframe{
-    margin-left: 30%;
-}
-
-/* TABLA LISTA SERIES */
-.tableListaSerie{
-    margin: 5% auto;
-    margin-bottom: 1%;
-    width: 90%;
-    color: rgb(136, 255, 0);
-}
-table,th, td {
-    background-color: rgba(0, 102, 128, 0.356);
-    border: 5px solid rgb(0, 90, 38);
-    border-collapse: collapse;  
-    padding: 10px;
-    text-align: center;
-}
-
-
-/* FORMULARIO AGREGAR SERIE */
-.box-nuevaserie {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(83, 71, 241, 0.335);
-    margin:10% auto;
-}
-.box-nuevaserie .titulo-agregar{
-    background-color: transparent;
-    color: greenyellow;
-    font-size: 150%;
-    padding: 2%;
-    margin:auto;
-}
-.form-nuevaserie{
-    display: flex;
-    flex-direction: column;
-}
-.form-nuevaserie input, .form-nuevaserie textarea, .form-nuevaserie select{
-    background-color: rgba(248, 248, 248, 0.712);
-    width: 80%;
-    padding: 2%;
-    margin:auto;
-}
- .form-nuevaserie .btn-ingreso{
-    width: 60%;
-    margin: 6% auto;
-    background-color: rgb(211, 4, 73);
-    border: transparent;
-    color: azure;
- }
