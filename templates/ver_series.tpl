@@ -1,11 +1,12 @@
 {* página principal *}
 {include file="head.tpl"}
 {include file="header.tpl"}
-<a href="showSeries" class="nav-link">
-    <button type="button" class="btn btn-danger">Lista de series</button>
+{include file="volver.tpl"}
+<a href="showSeries" class="">
+    <button type="button" class="linea colorFondo">Lista de series</button>
 </a>
-<a href="modificar" class="nav-link">
-    <button type="button" class="btn btn-danger">Modificar</button>
+<a href="modificar" class="">
+    <button type="button" class="linea colorFondo">Modificar</button>
 </a>
 
 <section>

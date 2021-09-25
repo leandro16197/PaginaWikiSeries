@@ -34,7 +34,7 @@ class SeriesModel{
 
     //busca una serie segun el id
     function getSerie($id){
-        $sentencia=$this->db->prepare("SELECT * FROM serie WHERE id_serie=? ");
+        $sentencia=$this->db->prepare("SELECT*FROM serie INNER JOIN genero ON serie.id_genero=genero.id_genero WHERE id_serie=? ");
         $sentencia->execute(array($id));
         $serie=$sentencia->fetch(PDO::FETCH_OBJ);
         return $serie;
@@ -42,8 +42,8 @@ class SeriesModel{
 
     //modifica una serie
     function editSerie($nombre,$sinopsis,$actor,$genero,$id){
-        $sentencia=$this->db->prepare("UPDATE serie SET nombre=?,sinopsis=?,actor_principal=?,id_genero=? WHERE id_genero=? ");
-        $sentencia->execute($nombre,$sinopsis,$actor,$genero,$id);
+        $sentencia=$this->db->prepare("UPDATE serie SET nombre=? , sinopsis=? , actor_principal=? , id_genero=? WHERE id_serie=? ");
+        $sentencia->execute(array($nombre,$sinopsis,$actor,$genero,$id));
     }
     //busca todas las series por un genero
     function getSerieGen($genero){

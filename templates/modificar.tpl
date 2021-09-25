@@ -1,5 +1,6 @@
 {include file="head.tpl"}   
  {* Lista series *}
+ {include file="volver.tpl"}
         <table class="tableListaSerie">
             <thead>
                 <tr>

@@ -38,7 +38,7 @@ class ModificarController{
     public function editarSerie(){
         $id = $_POST['id-serie'];
         $this->serieModel->editSerie( $_POST['nombreSerie'], $_POST['sinopsis'], $_POST['actor'], $_POST['genero-editar'], $id);
-        header("Location: " . MODIFICAR_URL);
+        header("Location: ". MODIFICAR_URL);
     }
 
     //ABM GENEROS

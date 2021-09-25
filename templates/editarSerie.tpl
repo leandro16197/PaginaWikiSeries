@@ -19,8 +19,8 @@
                 </select>
             <div class="btns-guardar-cancelar">
                 <button type="submit" class="btn-guardarSer" name="id-serie">Guardar</button>
-            </form>
                 <button  type="button" class="btn-cancelarSer">Cancelar</button>
             </div>
+        </form>
     </div>
 </div>
