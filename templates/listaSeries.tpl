@@ -1,7 +1,7 @@
 {include file="head.tpl"}
 {include file="volver.tpl"}
 {* lista series ordenadas por categoria y luego por nombre de serie *}
-<h1 class="titulo">Lista</h1>
+<h1 class="titulo">Lista de Series</h1>
     <div class="table-admin" >
         <table >
         <thead>
@@ -21,7 +21,7 @@
                 <td>{$gen->sinopsis}</td>
                 <td>{$gen->actor_principal}</td>
                 <td>
-                    <img src="public/images/img.png" alt="Imagen no disponible" class="imagen-tabla">
+                    <img src="publico/images/img.png" alt="Imagen no disponible" class="imagen-tabla">
                 </td>
             </tr>
         {/foreach}

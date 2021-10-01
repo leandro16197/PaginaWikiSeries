@@ -11,13 +11,17 @@ class RegistroController{
         $this->view = new RegistroView();
     }
 
+    function locacionLogin(){
+        header("Location: ". LOGIN_URL);
+    }
+
     function GetRegistro(){
         $this->view->Display(null);
     }
 
     function Registro(){
-        $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-        $this->model->addUser($_POST['nombre'],$_POST['user'],$hash);
-        header("Location: ". LOGIN_URL);
+            $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+            $this->model->addUser($_POST['nombre'],$_POST['user'],$hash);
+            $this->locacionLogin();
     }
 }

@@ -19,6 +19,8 @@ class ModificarController{
         if(!isset($_SESSION['user'])){
             header("Location: " . LOGIN_URL);
             die();
+        }else{
+            header("Location:". BASE_URL);
         }
     }
     //trae todas las series
@@ -32,25 +34,28 @@ class ModificarController{
     }
     //ABM SERIE
 
+    function locacionModificar(){
+        header("Location: ". MODIFICAR_URL);
+    }
     //agrega una serie
     function addSerie(){  
         $this->checkLogginIn();
         $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero']);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
        
     }
     //elimina serie segun id
     function deleteSerie($id){
         $this->checkLogginIn();
         $this->serieModel->deleteSerie($id);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
     }
     //edita serie
     public function editarSerie(){
         $this->checkLogginIn();
         $id = $_POST['id-serie'];
         $this->serieModel->editSerie( $_POST['nombreSerie'], $_POST['sinopsis'], $_POST['actor'], $_POST['genero-editar'], $id);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
     }
 
     //ABM GENEROS
@@ -59,19 +64,19 @@ class ModificarController{
     function addGenero(){
         $this->checkLogginIn();
         $this->generoModel->addGenero($_POST['nombre-gen']);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
     }
 
     //edita nombre genero
     function editarGenero(){
         $this->checkLogginIn();
         $this->generoModel->editGenero($_POST['genero'],$_POST['id-genero']);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
     }
     //eliminar genero
     function deleteGen($id){
         $this->checkLogginIn();
         $this->generoModel->deleteGenero($id);
-        header("Location: ". MODIFICAR_URL);
+        $this->locacionModificar();
     }
 }

@@ -6,7 +6,7 @@
         <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
         <input type="text" class="form-control" name="user" placeholder="Usuario" required>
         <input type="password" class="form-control" name="pass" placeholder="Password" required>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-ingreso">Registrarse</button>
 
     </div>
 </form>

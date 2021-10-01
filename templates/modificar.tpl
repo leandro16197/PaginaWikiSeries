@@ -25,7 +25,7 @@
                     <td>{$serie->sinopsis}</td>
                     <td>{$serie->actor_principal}</td>
                     <td>{$serie->nombreGen}</td>
-                    <td><img  class="imagen-infoSerie" src="public/images/img-noDisponible.png" alt="Imagen no disponible"></td>
+                    <td><img  class="imagen-infoSerie" src="publico/images/img.png" alt="Imagen no disponible"></td>
                      <td>
                         <a href="eliminarSerie/{$serie->id_serie}">
                             <button type="button" class="btn-info btn  ">Borrar</button>
