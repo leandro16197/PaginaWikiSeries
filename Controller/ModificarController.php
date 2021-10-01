@@ -24,7 +24,7 @@ class ModificarController{
     //ABM SERIE
 
     //agrega una serie
-    function addSerie(){    
+    function addSerie(){  
         $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero']);
         header("Location: ". MODIFICAR_URL);
        

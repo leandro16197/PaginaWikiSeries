@@ -27,12 +27,12 @@
                     <td><img  class="imagen-infoSerie" src="public/images/img-noDisponible.png" alt="Imagen no disponible"></td>
                      <td>
                         <a href="eliminarSerie/{$serie->id_serie}">
-                            <button type="button" class="btn-admin">Borrar</button>
+                            <button type="button" class="btn-info btn  ">Borrar</button>
                         </a>
                     </td>
                     <td>
                         <a>
-                            <button type="button" class="btn-admin btnEditarSer-js" id={$serie->id_serie}>Editar</button>
+                            <button type="button" class="btn-info btn btnEditarSer-js" id={$serie->id_serie}>Editar</button>
                         </a>
                     </td>
             {/foreach}
@@ -51,12 +51,12 @@
                     <td class="nombre-gen" >{$gen->nombreGen}</td>
                     <td>
                     <a>
-                        <button type="button" class="btn-admin btnEditar-js" id={$gen->id_genero}>Editar</button>
+                        <button type="button" class="btn btn-info btnEditar-js" id={$gen->id_genero}>Editar</button>
                     </a>
                     </td>
                     <td>
                         <a href="borrarGenero/{$gen->id_genero}">
-                            <button type="button" class="btn-admin">Borrar</button>
+                            <button type="button" class="btn btn-info">Borrar</button>
                         </a>
                     </td>
                 </tr>
@@ -67,7 +67,7 @@
                     <td colspan="3">
                         <form action="agregarGenero" method="POST">
                             <input type="text" name="nombre-gen" required>
-                            <input type="submit" value="Insertar" class="btn-ingreso" >
+                            <input type="submit" value="Insertar" class="btn-ingreso btn-info" >
                         </form>
                     </td>
                 </tr>
@@ -88,9 +88,10 @@
                     <option value={$gen->id_genero}>{$gen->nombreGen}</option>
                 {/foreach}
                 </select>
-                <input type="submit" value="Insertar" class="btn-ingreso">
+                <input type="submit" value="Insertar" class="btn btn-ingreso">
         </form>
 </div>
+
 <script src="public/js/editarSerie.js"></script>
 <script src="public/js/editarGenero.js"></script>
 {include file="footer.tpl"}

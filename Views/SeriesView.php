@@ -8,7 +8,7 @@ class SeriesView{
 
     function DisplaySeries($series,$generos){
         $smarty=new Smarty();
-        $smarty->assign('titulo','Mostrar Series');
+        $smarty->assign('titulo','Top Series');
         $smarty->assign('tituloNav','Generos');
         $smarty->assign('lista_series',$series);
         $smarty->assign('lista_generos',$generos);
