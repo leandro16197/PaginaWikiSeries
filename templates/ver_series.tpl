@@ -6,10 +6,11 @@
 <a href="showSeries" class="">
     <button type="button" class="linea colorFondo">Lista de series</button>
 </a>
-<a href="modificar">
+{if isset($user)}
+    <a href="modificar">
     <button type="button" class="linea colorFondo">Modificar</button>
-</a>
-
+    </a>
+{/if}
 <section>
     <h1 class="titulo">{$titulo}</h1>
     <ul class="row">

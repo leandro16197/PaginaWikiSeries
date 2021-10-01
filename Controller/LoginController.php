@@ -13,8 +13,6 @@ class LoginController{
     public function IniciarSesion(){
             $password = $_POST['pass'];
             $usuario=$this->model->GetPassword($_POST['user']);
-
-            var_dump($password,$usuario->pass);
             if ($usuario != null && password_verify($password,$usuario->pass)){
                 session_start();
                 $_SESSION['user'] = $usuario;
