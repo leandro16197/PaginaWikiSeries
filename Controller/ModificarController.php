@@ -22,6 +22,12 @@ class ModificarController{
         }else{
             header("Location:". BASE_URL);
         }
+        if(isset($_SESSION['LAST_ACTIVITY']) &&
+            time()- $_SESSION['LAST_ACTIVITY'] > 3600){
+                header("Location: " . LOGIN_URL);
+                die();
+            }
+        $_SESSION['LAST_ACTIVITY'] = time();
     }
     //trae todas las series
     function getSeries(){

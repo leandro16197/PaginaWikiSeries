@@ -16,10 +16,11 @@ class SeriesView{
         $smarty->display('templates/ver_series.tpl');
     }
 
-    function infoSerie($serie){
+    function infoSerie($serie,$user){
         $smarty=new Smarty();
         $smarty->assign('titulo','informacion de la serie');
         $smarty->assign('serie',$serie);
+        $smarty->assign('user',$user);
         $smarty->display('templates/serie.tpl');
     }
 

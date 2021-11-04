@@ -2,6 +2,10 @@
 {* Lista series *}
 {include file="volver.tpl"}
 {include file="sesion.tpl"}
+        <a  href="usuarios" class="nav-link">
+        <button class="btn btn-danger">Lista de usuarios</button>
+        </a>
+
         <table class="tableListaSerie">
             <thead>
                 <tr>

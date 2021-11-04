@@ -6,7 +6,7 @@
 <a href="showSeries" class="">
     <button type="button" class="linea colorFondo">Lista de series</button>
 </a>
-{if isset($user)}
+{if isset($user) && $user->admin}
     <a href="modificar">
     <button type="button" class="linea colorFondo">Modificar</button>
     </a>
@@ -25,5 +25,6 @@
         {/foreach}
     </ul>
 </section>
+
 
 {include file="footer.tpl"}

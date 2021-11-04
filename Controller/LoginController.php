@@ -16,7 +16,13 @@ class LoginController{
             if ($usuario != null && password_verify($password,$usuario->pass)){
                 session_start();
                 $_SESSION['user'] = $usuario;
-                header("Location: " . MODIFICAR_URL);
+
+                if($usuario->admin == 1){
+                    header("Location: " . MODIFICAR_URL);
+                }else {
+                    header("Location: " . URL_SERIES);
+                }
+
             }else{
                 $this->view->showLoggin("*** Usuario y/o consatrseña incorrectos ***");
             }
