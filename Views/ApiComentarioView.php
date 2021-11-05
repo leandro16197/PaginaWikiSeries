@@ -11,7 +11,7 @@ class ApiComentarioView {
         private function _requestStatus($code){
             $status = array(
                 200 => "OK",
-                404 => "Not found",
+                404 => "Not found o no contiene elementos",
                 500 => "Internal Server Error",
                 501 => "Internal Error in Tasks web"
               );

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2021 a las 02:55:15
+-- Tiempo de generación: 05-11-2021 a las 18:16:46
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -25,6 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comentario` int(11) NOT NULL,
+  `comentario` varchar(240) NOT NULL,
+  `puntaje` int(5) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_serie` int(11) DEFAULT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `genero`
 --
 
@@ -38,9 +53,8 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id_genero`, `nombreGen`) VALUES
-(1, 'Acción'),
-(11, 'Drama'),
-(12, 'Comedia');
+(18, 'Animado'),
+(21, 'hola mundo');
 
 -- --------------------------------------------------------
 
@@ -61,13 +75,43 @@ CREATE TABLE `serie` (
 --
 
 INSERT INTO `serie` (`id_serie`, `nombre`, `sinopsis`, `actor_principal`, `id_genero`) VALUES
-(1, 'Arrow', 'Cuando Oliver Queen, un billonario mujeriego, que se presumía había fallecido, regresa a casa a la ciudad Starling, luego de cinco años de quedar atrapado en una isla remota en el Pacífico, él esconde los cambios creados por la experiencia en sí mismo', 'stephen amell', 1),
-(2, 'the big bang theory', 'Leonard y Sheldon son dos cerebros privilegiados que pueden ser capaces de decirle a todo el mundo más de lo que quiere saber sobre la física cuántica, pero que no tienen ni la menor idea de cómo relacionarse socialmente, sobre todo cuando se trata de mujeres. ', 'Kaley Cuoco', 12),
-(3, 'Flash', 'Barry allen el hombre mas rapido del mundo', 'Grant Gustin', 1);
+(33, 'sadsad', 'asdsad', '2sad', 18),
+(34, 'asd', 'sad', 'sadsad', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(500) NOT NULL,
+  `user` varchar(600) NOT NULL,
+  `pass` varchar(700) NOT NULL,
+  `admin` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `user`, `pass`, `admin`) VALUES
+(1, 'leandro', 'leandro', '$2y$10$WA0/5bx1uT6AJjZS2zLzH.hEHwhnu9jK3WK7.hKPMeCbd9Yj5S8He', 1),
+(3, 'comun', 'comun', '$2y$10$uq7WCmpynPvOnWLjCIZyuOitHJz6N869yRAYGVkiaYLjtrL5Oltjy', 0),
+(4, 'cosa1', 'cosa1', '$2y$10$CnefDPlaNC1zdFPolWdg.eOLOP/QYpLRKnYID.RjC/zT04ftOvLDW', 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `fk_usuario` (`id_usuario`),
+  ADD KEY `fk_genero` (`id_serie`);
 
 --
 -- Indices de la tabla `genero`
@@ -83,24 +127,48 @@ ALTER TABLE `serie`
   ADD KEY `fk_genero` (`id_genero`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `serie`
 --
 ALTER TABLE `serie`
-  MODIFY `id_serie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_serie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `serie`

@@ -6,7 +6,7 @@
 <div>
     <h1 class="titulo tit-info">{$serie->nombre}</h1>
     <div>
-      <img class="img" src="public/images/img-noDisponible.png" alt="Imagen no disponible">
+      <img class="img" src="publico/images/img.png" alt="Imagen no disponible">
     </div>
     <label class="font">Actor principal: {$serie->actor_principal}</label>
     <h2 class="titulo">Sinopsis</h2>
@@ -14,7 +14,10 @@
     <h3 class="titulo">Genero</h3>
     <p class="font">{$serie->nombreGen}</p>
 </div>
+
 {include file="vue/comentario.tpl"}
+
+
 {include file="comentario.tpl"}
 <script src="publico/js/app.js"></script>
 {include file="footer.tpl"}

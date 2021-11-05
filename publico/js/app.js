@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", inicio);
 
 function inicio() {
     const API_URL = "api/comentario";
-    document.querySelector(".btn-delete").addEventListener('click', eliminarComentario());
+    let id_serie= document.querySelector("input[name=serie]").value;
+    document.querySelector(".btn-delete").addEventListener('click', eliminarComentario);
     document.querySelector("#form-comentario").addEventListener('submit', addComentario);
 
     let app = new Vue({
@@ -12,25 +13,21 @@ function inicio() {
         data: {
             titulo: "comentarios",
             comentarios: [],
-            admin: false,
+            admin: false
         },
+        methods:{
+            eliminarComentario:eliminarComentario
+        }
     })
 
-    function isAdmin(){
-        let admin = document.querySelector("input[name=admin]").value;
+    getComentariosBySerie(id_serie);
 
-        if(admin == 1){
-            app.admin = true;
-        }
-    }
-
-    async function getComentarios() {
-        let id = document.querySelector("input[name=serie]").value;
-        console.log(id);
-        try {
-            let response = await fetch(API_URL);
+    async function getComentariosBySerie(id_serie) {
+        console.log(id_serie);
+      try{
+            let response = await fetch(API_URL+"/"+id_serie);
             let comentarios = await response.json();
-            app.comentarios = comentarios;
+            app.comentarios=comentarios;
             Admin();
             } catch (e) {
             console.log(e);
@@ -57,26 +54,28 @@ function inicio() {
         } catch (e) {
             console.log(e);
         }
-        getComentarios();
+        getComentariosBySerie(id_serie);
     }
 
-    async function eliminarComentario() {
-        let id=1;
+    async function eliminarComentario(id) {
+        console.log(id)
         try {
-            await fetch(API_URL, {
-                method: 'DELETE',
+            await fetch(API_URL+"/"+id, {
+                method: 'DELETE'
             });
         } catch (e) {
             console.log(e);
         }
+        getComentariosBySerie(id_serie);
     }
+
     function Admin(){
         let admin = document.querySelector("input[name=admin]").value;
-
         if(admin == 1){
             app.admin = true;
         }
     }
+    
     function getFecha() {
         let fechaActual = new Date();
         let dd = fechaActual.getDay();
@@ -84,6 +83,5 @@ function inicio() {
         let yyyy = fechaActual.getFullYear();
         return yyyy + '/' + mm + '/' + dd;
     }
-    getComentarios();
 }
 

@@ -15,29 +15,22 @@ class ApiComentarioController
     }
 
 
-    function getData()
-    {
+    function getData(){
         return json_decode($this->data);
     }
-    function getComentarios()
-    {
-        $sentencia = $this->model->getComentarios();
+
+    
+    function getComentariosSerie($param = null){        
+        $id = $param[':ID'];
+        $sentencia = $this->model->getComentarioSerie($id);
         if ($sentencia) {
             return $this->view->response($sentencia, 200);
         } else {
-            return $this->view->response("error al traer comentarios", 404);
+            $error=[];
+            return $this->view->response($error, 404);
         }
     }
 
-    function getComentario($param = null){
-        $id = $param[':ID'];
-        $comentario = $this->model->getComentario($id);
-        if ($comentario) {
-            return $this->view->response($comentario, 202);
-        } else {
-            return $this->view->response("error al traer comentario con id=$id", 404);
-        }
-    }
     function deleteComentario($params = null){
         $id = $params[':ID'];
         $comentario = $this->model->getComentario($id);

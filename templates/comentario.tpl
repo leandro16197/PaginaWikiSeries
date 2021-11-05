@@ -1,5 +1,5 @@
+<div>
 <form id="form-comentario">
-{*llamar a router comun *}
             <div class="box-nuevaserie">
                 <label class="titulo-agregar">Ingrese su comentario</label>
                 <input type="text" name="usuario" value="{$user->id_usuario}" class="hidden-windows">
@@ -10,3 +10,4 @@
             </div>
         </form>
     </div>
+</div>
