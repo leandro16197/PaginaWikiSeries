@@ -21,7 +21,11 @@
                 <td>{$gen->sinopsis}</td>
                 <td>{$gen->actor_principal}</td>
                 <td>
+                    {if $gen->img != null}
+                    <img src={$gen->img} alt={$gen->nombre} class="imagen-tabla">
+                    {else}
                     <img src="publico/images/img.png" alt="Imagen no disponible" class="imagen-tabla">
+                    {/if}
                 </td>
             </tr>
         {/foreach}

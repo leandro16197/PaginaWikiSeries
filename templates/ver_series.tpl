@@ -16,7 +16,7 @@
     <ul class="row">
         {foreach from=$lista_series item=serie}
             <li class="card text-white bg-secondary">
-                <img class="card altura" src="publico/images/img.png" alt="Imagen no disponible">
+                <img src={$serie->img} alt={$serie->nombre} class="imagen-tabla">
                 <div class="card-body">
                     <h5 class="card-title">{$serie->nombre}</h5>
                     <a href="infoSerie/{$serie->id_serie}" class="btn btn-dark btn-lg">Ver informacion</a>

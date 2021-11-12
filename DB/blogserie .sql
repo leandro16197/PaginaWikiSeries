@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2021 a las 18:16:46
+-- Tiempo de generación: 12-11-2021 a las 04:11:51
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -48,14 +48,6 @@ CREATE TABLE `genero` (
   `nombreGen` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `genero`
---
-
-INSERT INTO `genero` (`id_genero`, `nombreGen`) VALUES
-(18, 'Animado'),
-(21, 'hola mundo');
-
 -- --------------------------------------------------------
 
 --
@@ -67,16 +59,9 @@ CREATE TABLE `serie` (
   `nombre` varchar(45) NOT NULL,
   `sinopsis` varchar(400) NOT NULL,
   `actor_principal` varchar(200) NOT NULL,
-  `id_genero` int(11) NOT NULL
+  `id_genero` int(11) NOT NULL,
+  `img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `serie`
---
-
-INSERT INTO `serie` (`id_serie`, `nombre`, `sinopsis`, `actor_principal`, `id_genero`) VALUES
-(33, 'sadsad', 'asdsad', '2sad', 18),
-(34, 'asd', 'sad', 'sadsad', 18);
 
 -- --------------------------------------------------------
 
@@ -140,19 +125,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `serie`
 --
 ALTER TABLE `serie`
-  MODIFY `id_serie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_serie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

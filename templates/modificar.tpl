@@ -29,7 +29,7 @@
                     <td>{$serie->sinopsis}</td>
                     <td>{$serie->actor_principal}</td>
                     <td>{$serie->nombreGen}</td>
-                    <td><img  class="imagen-infoSerie" src="publico/images/img.png" alt="Imagen no disponible"></td>
+                    <td><img src={$serie->img} alt={$serie->nombre} class="imagen-tabla">
                      <td>
                         <a href="eliminarSerie/{$serie->id_serie}">
                             <button type="button" class="btn-info btn  ">Borrar</button>
@@ -86,6 +86,7 @@
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <textarea name="sinopsis" placeholder="Sinopsis" required></textarea>
                 <input type="text" name="actor" placeholder="Actor" required>
+                <input type="file" name="img" placeholder="Ingrese imagen">
                 {* OPCIONES *}
                 <select class="opciones" name="genero" required>
                  <option value="" disable>Seleccione una opción</option>
@@ -97,6 +98,6 @@
         </form>
 </div>
 
-<script src="public/js/editarSerie.js"></script>
-<script src="public/js/editarGenero.js"></script>
+<script src="publico/js/editarSerie.js"></script>
+<script src="publico/js/editarGenero.js"></script>
 {include file="footer.tpl"}

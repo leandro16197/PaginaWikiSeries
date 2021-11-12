@@ -46,8 +46,17 @@ class ModificarController{
     //agrega una serie
     function addSerie(){  
         $this->checkLogginIn();
-        $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero']);
-        $this->locacionModificar();
+        if(($_FILES["img"]["type"]=="image/png") || ($_FILES["img"]["type"]=="image/jpg")){
+            $img=$_FILES["img"];
+            $origen=$img["tmp_name"];
+            $destino="publico/images/".uniqid().$img["name"];
+            copy($origen,$destino);
+            $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero'],$destino);
+            $this->locacionModificar();
+        }else{
+            $this->getSeries();
+        }
+        
        
     }
     //elimina serie segun id
