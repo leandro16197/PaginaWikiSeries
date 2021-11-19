@@ -1,10 +1,10 @@
 <?php
 require_once './Controller/SeriesController.php';
-require_once './Controller/ModificarController.php';
 require_once './Controller/LoginController.php';
 require_once './Controller/RegistroController.php';
 require_once './Controller/UsuarioController.php';
-
+require_once './Controller/GeneroController.php';
+require_once './Helper/AuthHelper.php';
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("URL_SERIES", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/showSeries');
@@ -22,14 +22,15 @@ if(!empty($_GET["action"])){
 $params=explode('/',$action);
 
 $SerieController = new SeriesController();
-$ModificarController=new ModificarController();
 $LoginController=new LoginController();
 $RegistroController=new RegistroController();
 $UsuarioController=new UsuarioController();
+$GeneroController=new GenerosController();
+$authHelper=new AuthHelper();
 
 switch($params[0]){
     case 'home':
-        $SerieController->getSeries();
+        $SerieController->getHome();
         break;
     case 'infoSerie':
         $SerieController->getInfoSeries($params[1]);
@@ -62,28 +63,29 @@ switch($params[0]){
         $LoginController->IniciarSesion();
         break;
     case 'logout':
-        $LoginController->Logout();        
+        $authHelper->Logout();        
         break;
     case 'modificar':
-        $ModificarController->getSeries();
+        $SerieController->getSeries();
         break;
     case 'addSerie':
-        $ModificarController->addSerie();
+        $SerieController->addSerie();
         break;
     case 'eliminarSerie':
-        $ModificarController->deleteSerie($params[1]);
+        $SerieController->deleteSerie($params[1]);
         break;
     case 'editarSerie':
-        $ModificarController->editarSerie();
+        $SerieController->editarSerie();
         break;
     case 'agregarGenero':
-        $ModificarController->addGenero();
+        $GeneroController->addGenero();
         break;
     case 'editarGenero':
-        $ModificarController->editarGenero();
+        $GeneroController->editarGenero();
         break;
     case 'borrarGenero':
-        $ModificarController->deleteGen($params[1]);
+        $GeneroController->deleteGen($params[1]);
+        break;
 }
 
 ?>

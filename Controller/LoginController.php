@@ -16,15 +16,16 @@ class LoginController{
             if ($usuario != null && password_verify($password,$usuario->pass)){
                 session_start();
                 $_SESSION['user'] = $usuario;
-
+                $_SESSION['isAdmin'] = false;
                 if($usuario->admin == 1){
+                    session_start();
+                    $_SESSION['isAdmin'] = true;
                     header("Location: " . MODIFICAR_URL);
                 }else {
                     header("Location: " . URL_SERIES);
                 }
-
             }else{
-                $this->view->showLoggin("*** Usuario y/o consatrseña incorrectos ***");
+                $this->view->showLoggin("*** Usuario y/o contraseña incorrectos ***");
             }
         }
 
@@ -32,11 +33,5 @@ class LoginController{
         $this->view->DisplayLogin(); 
     }
     
-    public function Logout(){
-        session_start();
-        session_destroy();
-        header("Location: " . BASE_URL);
-    }
-
 
 }

@@ -31,17 +31,21 @@
                     <td>{$serie->nombreGen}</td>
                     <td><img src={$serie->img} alt={$serie->nombre} class="imagen-tabla">
                      <td>
-                    {if $user->admin==1}
+                     {if isset($user)}
+                         {if $user->admin == 1}
                         <a href="eliminarSerie/{$serie->id_serie}">
                             <button type="button" class="btn-info btn  ">Borrar</button>
                         </a>
-                    {/if}
+                         {/if}
+                     {/if}
                     </td>
                     <td>
-                    {if $user->admin==1}
+                  {if isset($user)}
+                         {if $user->admin == 1}
                         <a>
                             <button type="button" class="btn-info btn btnEditarSer-js" id={$serie->id_serie}>Editar</button>
                         </a>
+                        {/if}
                     {/if}
                     </td>
             {/foreach}
@@ -59,17 +63,22 @@
                 <tr id={$gen->id_genero}>
                     <td class="nombre-gen" >{$gen->nombreGen}</td>
                     <td>
+                    {if isset($user)}
+                         {if $user->admin == 1}
                     <a>
-                    {if $user->admin==1}
                         <button type="button" class="btn btn-info btnEditar-js" id={$gen->id_genero}>Editar</button>
-                    {/if}
+
                     </a>
+                     {/if}
+                    {/if}
                     </td>
                     <td>
-                    {if $user->admin==1}
+                     {if isset($user)}
+                         {if $user->admin == 1}
                         <a href="borrarGenero/{$gen->id_genero}">
                             <button type="button" class="btn btn-info">Borrar</button>
                         </a>
+                        {/if}
                     {/if}
                     </td>
                 </tr>
@@ -80,9 +89,11 @@
                     <td colspan="3">
                         <form action="agregarGenero" method="POST">
                             <input type="text" name="nombre-gen" required>
-                            {if $user->admin==1}
+                       {if isset($user)}
+                         {if $user->admin == 1}
                             <input type="submit" value="Insertar" class="btn-ingreso btn-info" >
-                            {/if}
+                        {/if}
+                        {/if}   
                         </form>
                     </td>
                 </tr>
@@ -104,9 +115,11 @@
                     <option value={$gen->id_genero}>{$gen->nombreGen}</option>
                 {/foreach}
                 </select>
-                {if $user->admin==1}
+                {if isset($user)}
+                {if $user->admin == 1}
                 <input type="submit" value="Insertar" class="btn btn-ingreso">
                 {/if}
+                {/if}  
         </form>
 </div>
 

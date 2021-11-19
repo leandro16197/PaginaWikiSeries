@@ -13,6 +13,7 @@ class SeriesModel{
         $series=$sentencia->fetchAll(PDO::FETCH_OBJ);
         return $series;
     }
+    
     //lista las series ordenada por gen
     function getSerieGenro(){
         $sentencia=$this->db->prepare("SELECT * FROM serie INNER JOIN genero on serie.id_genero=genero.id_genero ORDER BY genero.nombreGen,serie.nombre");
