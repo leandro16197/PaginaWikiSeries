@@ -26,8 +26,7 @@ class ApiComentarioController
         if ($sentencia) {
             return $this->view->response($sentencia, 200);
         } else {
-            $error=[];
-            return $this->view->response($error, 404);
+            return $this->view->response("comentarios vacios", 200);
         }
     }
 

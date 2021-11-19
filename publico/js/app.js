@@ -23,13 +23,16 @@ function inicio() {
     getComentariosBySerie(id_serie);
 
     async function getComentariosBySerie(id_serie) {
-        console.log(id_serie);
       try{
             let response = await fetch(API_URL+"/"+id_serie);
             let comentarios = await response.json();
-            app.comentarios=comentarios;
-            Admin();
-            } catch (e) {
+            if(typeof comentarios=="object"){
+                app.comentarios=comentarios;
+                Admin();
+            }else{
+                app.comentarios=[];
+            }
+        } catch (e) {
             console.log(e);
         }
     }
@@ -44,7 +47,6 @@ function inicio() {
             id_serie: document.querySelector("input[name=serie]").value
            
         }
-        console.log(data);
         try {
             await fetch(API_URL, {
                 method: 'POST',

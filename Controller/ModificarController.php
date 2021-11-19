@@ -19,15 +19,10 @@ class ModificarController{
         if(!isset($_SESSION['user'])){
             header("Location: " . LOGIN_URL);
             die();
-        }else{
-            header("Location:". BASE_URL);
+        }else{ 
+            header("Location: " . BASE_URL);
         }
-        if(isset($_SESSION['LAST_ACTIVITY']) &&
-            time()- $_SESSION['LAST_ACTIVITY'] > 3600){
-                header("Location: " . LOGIN_URL);
-                die();
-            }
-        $_SESSION['LAST_ACTIVITY'] = time();
+
     }
     //trae todas las series
     function getSeries(){
@@ -36,13 +31,14 @@ class ModificarController{
         $series=$this->serieModel->getSerieGenro();
         $generos=$this->generoModel->getGeneros();
         $this->modificarView->DisplaySeries($series,$generos,$user);
-
+        $this->locacionModificar();
     }
     //ABM SERIE
 
     function locacionModificar(){
         header("Location: ". MODIFICAR_URL);
     }
+
     //agrega una serie
     function addSerie(){  
         $this->checkLogginIn();
@@ -51,12 +47,9 @@ class ModificarController{
             $origen=$img["tmp_name"];
             $destino="publico/images/".uniqid().$img["name"];
             copy($origen,$destino);
-            $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$_POST['genero'],$destino);
+            $this->serieModel->addSerie($_POST['nombre'],$_POST['sinopsis'],$_POST['actor'],$destino,$_POST['genero']);
             $this->locacionModificar();
-        }else{
-            $this->getSeries();
         }
-        
        
     }
     //elimina serie segun id

@@ -1,7 +1,7 @@
 {include file="head.tpl"}   
 {include file="volver.tpl"}
 <a href="modificar">
-    <button class="btn-admin">Volver</button>
+    <button class="linea colorFondo">Volver</button>
 </a>
 
 <h1 class="titulo">Lista De Usuarios</h1>
@@ -29,19 +29,19 @@
                 {if {$user->admin} == 1}
                     <td>
                     <a href="modificarperfil/{$user->id_usuario}/0">
-                        <button class="btn-admin">Cambiar a Invitado</button>
+                        <button class="btn btn-secondary">Cambiar a Invitado</button>
                     </a>
                 </td>
                 {else}
                     <td>
                     <a href="modificarperfil/{$user->id_usuario}/1">
-                        <button class="btn-admin">Cambiar a Administrador</button>
+                        <button class="btn btn-secondary ">Cambiar a Administrador</button>
                     </a>
                 </td>
                 {/if}
                 <td>
                     <a href="eliminarusuario/{$user->id_usuario}">
-                        <button class="btn-admin" >Eliminar</button>
+                        <button class="btn btn-secondary" >Eliminar</button>
                     </a>
                 </td>
             </tr>

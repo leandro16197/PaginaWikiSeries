@@ -6,7 +6,7 @@
 <div>
     <h1 class="titulo tit-info">{$serie->nombre}</h1>
     <div>
-      <img src={$serie->img} alt={$serie->nombre} class="imagen-tabla">
+      <img class="img" src={$serie->img} alt={$serie->nombre} >
     </div>
     <label class="font">Actor principal: {$serie->actor_principal}</label>
     <h2 class="titulo">Sinopsis</h2>

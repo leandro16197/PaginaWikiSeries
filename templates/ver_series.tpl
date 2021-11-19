@@ -3,7 +3,7 @@
 {include file="header.tpl"}
 {include file="sesion.tpl"}
 {include file="volver.tpl"}
-<a href="showSeries" class="">
+<a href="showSeries" >
     <button type="button" class="linea colorFondo">Lista de series</button>
 </a>
 {if isset($user) && $user->admin}
@@ -16,7 +16,7 @@
     <ul class="row">
         {foreach from=$lista_series item=serie}
             <li class="card text-white bg-secondary">
-                <img src={$serie->img} alt={$serie->nombre} class="imagen-tabla">
+                <img src={$serie->img} alt={$serie->nombre} class="rounded">
                 <div class="card-body">
                     <h5 class="card-title">{$serie->nombre}</h5>
                     <a href="infoSerie/{$serie->id_serie}" class="btn btn-dark btn-lg">Ver informacion</a>

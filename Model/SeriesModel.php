@@ -21,7 +21,7 @@ class SeriesModel{
         return $series;
     }
     //agrega una serie
-    function addSerie($nombre,$sinopsis,$actor,$genero,$destino){
+    function addSerie($nombre,$sinopsis,$actor,$destino,$genero){
         $sentencia=$this->db->prepare("INSERT INTO serie(nombre,sinopsis,actor_principal,id_genero,img) VALUES (?,?,?,?,?)");
         $sentencia->execute(array($nombre,$sinopsis,$actor,$genero,$destino));
         return $this->db->lastInsertId();
@@ -34,7 +34,7 @@ class SeriesModel{
 
     //busca una serie segun el id
     function getSerie($id){
-        $sentencia=$this->db->prepare("SELECT*FROM serie INNER JOIN genero ON serie.id_genero=genero.id_genero WHERE id_serie=? ");
+        $sentencia=$this->db->prepare("SELECT * FROM serie INNER JOIN genero ON serie.id_genero=genero.id_genero WHERE id_serie=? ");
         $sentencia->execute(array($id));
         $serie=$sentencia->fetch(PDO::FETCH_OBJ);
         return $serie;
