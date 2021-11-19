@@ -45,9 +45,9 @@ class ApiComentarioController
         $body = $this->getData();
         $id = $this->model->insertComentario($body->comentario, $body->puntaje,$body->fecha,$body->id_usuario, $body->id_serie);
         if ($id != 0) {
-            return $this->view->response("se agrego correctamente la serie", 200);
+            return $this->view->response("Se agrego correctamente el comentario", 200);
         } else {
-            return $this->view->response("error al agregar serie", 404);
+            return $this->view->response("Usuario no logeado", 200);
         }
     }
 }

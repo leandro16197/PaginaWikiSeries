@@ -17,7 +17,6 @@
 
 {include file="vue/comentario.tpl"}
 
-
 {include file="comentario.tpl"}
 <script src="publico/js/app.js"></script>
 {include file="footer.tpl"}
