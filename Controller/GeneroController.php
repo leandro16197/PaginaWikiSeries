@@ -26,7 +26,7 @@ class GenerosController{
 
       function deleteGen($id){
         $this->auth->checkLogginIn();
-        if($this->auth->isAdmin()){
+        if($this->auth->Admin()){
             $this->model->deleteGenero($id);
         }
         $this->auth->locacionModificar();

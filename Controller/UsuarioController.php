@@ -1,14 +1,17 @@
 <?php
 require_once ('./Model/UsuarioModel.php');
 require_once('./Views/UsuarioView.php');
+require_once('./Helper/AuthHelper.php');
 
 class UsuarioController{
     private $model;
     private $view;
+    private $auth;
 
     function __construct(){
         $this->model=new UsuarioModel();
         $this->view=new UsuarioView();
+        $this->auth=new AuthHelper();;
     }
 
     function getUsuarios(){
@@ -19,12 +22,25 @@ class UsuarioController{
     }
 
     function ModificarPerfil($valor,$id){
-        $this->model->ModificarPerfil($valor,$id);
-        header("Location: " . USUARIO_URL);
+        $this->auth->checkLogginIn();
+        if($this->auth->Admin()){
+            $this->model->ModificarPerfil($valor,$id);
+            $this->auth->locacionUsuario();
+        }else{
+            $this->auth->locacionBase();
+        }
+        
+        
     }
     function EliminarUsuario($id){
-        $this->model->deleteUsuario($id);
-        header("Location: " . USUARIO_URL);
+        $this->auth->checkLogginIn();
+        if($this->auth->Admin()){
+            $this->model->deleteUsuario($id);
+            $this->auth->locacionUsuario();
+        }else{
+            $this->auth->locacionBase();
+        }
+       
     }   
 
 
