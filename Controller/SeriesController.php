@@ -47,7 +47,7 @@ class SeriesController{
         session_start();
         $series=$this->seriesModel->getSerieGenro();
         $generos=$this->genModel->getGeneros();
-        
+
        if(isset($_SESSION['user'])){
         $user=$_SESSION['user'];
         $this->seriesView->DisplaySeries($series,$generos,$user);
