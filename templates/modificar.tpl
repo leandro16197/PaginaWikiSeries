@@ -107,7 +107,7 @@
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <textarea name="sinopsis" placeholder="Sinopsis" required></textarea>
                 <input type="text" name="actor" placeholder="Actor" required>
-                <input type="file" name="img" placeholder="Ingrese imagen">
+                <input type="file" name="img" placeholder="Ingrese imagen" required>
                 {* OPCIONES *}
                 <select class="opciones" name="genero" required>
                  <option value="" disable>Seleccione una opción</option>
